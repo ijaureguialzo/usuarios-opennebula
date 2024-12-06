@@ -2,6 +2,7 @@ locals {
   opennebula = {
     username = "admin"
     token    = "4b8cf5....................................................c1cb11"
+    hostname = "opennebula.example.org"
   }
   usuarios = {
     nombre    = "ciber"

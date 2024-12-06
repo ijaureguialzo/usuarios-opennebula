@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "opennebula" {
-  endpoint = "https://opennebula.egibide.org/RPC2"
+  endpoint = "https://${local.opennebula.hostname}/RPC2"
   username = local.opennebula.username
   password = local.opennebula.token
 }
