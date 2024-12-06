@@ -4,7 +4,7 @@ resource "opennebula_group" "grupos" {
   name = "${local.usuarios.nombre}${local.usuarios.separador}${format("%02d", count.index+1)}"
 
   sunstone {
-    views        = "cloud, user"
+    views        = "user"
     default_view = "user"
   }
 }
