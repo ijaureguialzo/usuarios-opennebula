@@ -16,4 +16,10 @@ resource "opennebula_user" "usuarios" {
   password      = local.usuarios.password
   auth_driver   = "core"
   primary_group = opennebula_group.grupos[count.index].id
+
+  lifecycle {
+    ignore_changes = [
+      quotas
+    ]
+  }
 }
