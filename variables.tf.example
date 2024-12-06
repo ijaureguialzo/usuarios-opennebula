@@ -1,0 +1,26 @@
+locals {
+  opennebula = {
+    username = "admin"
+    token    = "4b8cf5....................................................c1cb11"
+  }
+  usuarios = {
+    nombre    = "ciber"
+    separador = "-"
+    numero    = 20
+    password  = "12345Abcde"
+  }
+  cuota = {
+    cpu            = 4
+    memoria        = 12 * 1024
+    disco_sistema  = 100 * 1024
+    disco_imagenes = 50 * 1024
+  }
+  red = {
+    puerta_enlace = "172.20.1.2"
+    mascara       = "255.255.0.0"
+    subred        = "227"
+    dns           = "192.168.10.1 1.1.1.1"
+    ip_inicial    = 10
+    numero_ips    = 10
+  }
+}
