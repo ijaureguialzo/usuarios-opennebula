@@ -3,14 +3,9 @@ resource "opennebula_group" "grupos" {
 
   name = "${local.usuarios.nombre}${local.usuarios.separador}${format("%02d", count.index+1)}"
 
-  template_section {
-    name = "SUNSTONE"
-    elements = {
-      VIEWS                    = "cloud, user"
-      DEFAULT_VIEW             = "user"
-      GROUP_ADMIN_VIEWS        = "groupadmin"
-      GROUP_ADMIN_DEFAULT_VIEW = "groupadmin"
-    }
+  sunstone {
+    views        = "cloud, user"
+    default_view = "user"
   }
 }
 
