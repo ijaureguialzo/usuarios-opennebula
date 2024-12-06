@@ -12,3 +12,20 @@ resource "opennebula_virtual_data_center" "datacenter" {
     vnet_ids = [opennebula_virtual_network.redes[count.index].id]
   }
 }
+
+resource "null_resource" "borrar_default_vdc_grupo" {
+  count = local.usuarios.numero
+
+  connection {
+    type = "ssh"
+    user = "root"
+    private_key = file("/root/.ssh/id_rsa")
+    host = local.opennebula.hostname
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "onevdc delgroup default ${opennebula_group.grupos[count.index].name}"
+    ]
+  }
+}
