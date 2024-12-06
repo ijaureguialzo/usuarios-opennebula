@@ -12,9 +12,9 @@ locals {
   }
   cuota = {
     cpu            = 4
-    memoria        = 12 * 1024
-    disco_sistema  = 100 * 1024
-    disco_imagenes = 50 * 1024
+    memoria        = 12
+    disco_sistema  = 100
+    disco_imagenes = 50
   }
   red = {
     puerta_enlace = "172.20.1.2"

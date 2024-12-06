@@ -9,7 +9,7 @@ resource "opennebula_user_quotas" "cuotas_datastore" {
 
   datastore {
     id   = data.opennebula_datastore.default.id
-    size = local.cuota.disco_imagenes
+    size = local.cuota.disco_imagenes * 1024
   }
 }
 
@@ -20,7 +20,7 @@ resource "opennebula_user_quotas" "cuotas_sistema" {
 
   vm {
     running_cpu      = local.cuota.cpu
-    running_memory   = local.cuota.memoria
-    system_disk_size = local.cuota.disco_sistema
+    running_memory   = local.cuota.memoria * 1024
+    system_disk_size = local.cuota.disco_sistema * 1024
   }
 }
