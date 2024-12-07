@@ -1,10 +1,30 @@
+terraform {
+  required_providers {
+    opennebula = {
+      source  = "OpenNebula/opennebula"
+      version = "~> 1.4"
+    }
+  }
+}
+
+locals {
+  opennebula = {
+    username = "admin"
+    token    = "4b8cf5....................................................c1cb11"
+    hostname = "opennebula.example.org"
+  }
+}
+
+provider "opennebula" {
+  endpoint = "https://${local.opennebula.hostname}/RPC2"
+  username = local.opennebula.username
+  password = local.opennebula.token
+}
+
 module "ciber" {
-  for_each = toset([
-    "ciber-01",
-    "ciber-02",
-    "ciber-99"
-  ])
+  count    = 20
   source   = "./crear_usuarios"
-  username = each.key
+  username = format("ciber-%02d", count.index + 1)
+  network  = count.index + 1
   password = "12345Abcde"
 }

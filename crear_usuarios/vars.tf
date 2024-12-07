@@ -5,3 +5,7 @@ variable "username" {
 variable "password" {
   default = "12345Abcde"
 }
+
+variable "network" {
+  default = 1
+}

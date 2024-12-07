@@ -34,5 +34,5 @@ resource "opennebula_virtual_network_address_range" "rango_direcciones" {
   virtual_network_id = opennebula_virtual_network.red.id
   ar_type            = "IP4"
   size               = local.red.numero_ips
-  ip4                = "172.20.${local.red.subred}.${local.red.ip_inicial+(count.index)*local.red.numero_ips}"
+  ip4                = "172.20.${local.red.subred}.${local.red.ip_inicial+(var.network)*local.red.numero_ips}"
 }
