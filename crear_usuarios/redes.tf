@@ -25,6 +25,7 @@ resource "opennebula_virtual_network" "red" {
   network_mask = local.red.mascara
 
   permissions = "640"
+  user        = opennebula_user.usuario.name
   group       = opennebula_group.grupo.name
 
   security_groups = [opennebula_security_group.grupo_seguridad.id]
