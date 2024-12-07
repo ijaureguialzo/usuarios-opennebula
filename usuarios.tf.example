@@ -1,0 +1,10 @@
+module "ciber" {
+  for_each = toset([
+    "ciber-01",
+    "ciber-02",
+    "ciber-99"
+  ])
+  source   = "./crear_usuarios"
+  username = each.key
+  password = "12345Abcde"
+}
