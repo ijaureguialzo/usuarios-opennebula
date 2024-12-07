@@ -4,12 +4,6 @@ locals {
     token    = "4b8cf5....................................................c1cb11"
     hostname = "opennebula.example.org"
   }
-  usuarios = {
-    nombre    = "ciber"
-    separador = "-"
-    numero    = 20
-    password  = "12345Abcde"
-  }
   cuota = {
     cpu            = 4
     memoria        = 12

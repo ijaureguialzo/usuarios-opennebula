@@ -2,10 +2,8 @@ data "opennebula_datastore" "default" {
   name = "default"
 }
 
-resource "opennebula_user_quotas" "cuotas_datastore" {
-  count = local.usuarios.numero
-
-  user_id = opennebula_user.usuarios[count.index].id
+resource "opennebula_user_quotas" "cuota_datastore" {
+  user_id = opennebula_user.usuario.id
 
   datastore {
     id   = data.opennebula_datastore.default.id
@@ -13,10 +11,8 @@ resource "opennebula_user_quotas" "cuotas_datastore" {
   }
 }
 
-resource "opennebula_user_quotas" "cuotas_sistema" {
-  count = local.usuarios.numero
-
-  user_id = opennebula_user.usuarios[count.index].id
+resource "opennebula_user_quotas" "cuota_sistema" {
+  user_id = opennebula_user.usuario.id
 
   vm {
     running_cpu      = local.cuota.cpu
