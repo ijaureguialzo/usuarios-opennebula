@@ -16,7 +16,7 @@ resource "null_resource" "borrar_default_vdc_grupo" {
     type = "ssh"
     user = "root"
     private_key = file("/root/.ssh/id_rsa")
-    host = local.opennebula.hostname
+    host = var.hostname
   }
 
   provisioner "remote-exec" {

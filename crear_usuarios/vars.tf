@@ -9,3 +9,7 @@ variable "password" {
 variable "network" {
   default = 1
 }
+
+variable "hostname" {
+  default = "opennebula.example.org"
+}

@@ -24,6 +24,7 @@ provider "opennebula" {
 module "ciber" {
   count    = 20
   source   = "./crear_usuarios"
+  hostname = local.opennebula.hostname
   username = format("ciber-%02d", count.index + 1)
   network  = count.index + 1
   password = "12345Abcde"
