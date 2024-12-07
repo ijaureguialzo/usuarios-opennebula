@@ -20,9 +20,9 @@ resource "opennebula_virtual_network" "red" {
   type   = "bridge"
   bridge = "aulas"
 
-  gateway      = local.red.puerta_enlace
-  dns          = local.red.dns
-  network_mask = local.red.mascara
+  gateway      = var.red.puerta_enlace
+  dns          = var.red.dns
+  network_mask = var.red.mascara
 
   permissions = "640"
   user        = opennebula_user.usuario.name
@@ -34,6 +34,6 @@ resource "opennebula_virtual_network" "red" {
 resource "opennebula_virtual_network_address_range" "rango_direcciones" {
   virtual_network_id = opennebula_virtual_network.red.id
   ar_type            = "IP4"
-  size               = local.red.numero_ips
-  ip4                = "172.20.${local.red.subred}.${local.red.ip_inicial+(var.network)*local.red.numero_ips}"
+  size               = var.red.numero_ips
+  ip4                = "172.20.${var.red.subred}.${var.red.ip_inicial+(var.network)*var.red.numero_ips}"
 }
