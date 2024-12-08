@@ -17,7 +17,7 @@ resource "opennebula_security_group" "grupo_seguridad" {
 
 resource "opennebula_virtual_network" "red" {
   name   = var.username
-  type   = "bridge"
+  type   = "fw"
   bridge = "aulas"
 
   gateway      = var.red.puerta_enlace
