@@ -15,7 +15,8 @@ resource "opennebula_user" "usuario" {
 
   lifecycle {
     ignore_changes = [
-      quotas
+      quotas,
+      ssh_public_key,
     ]
   }
 }
