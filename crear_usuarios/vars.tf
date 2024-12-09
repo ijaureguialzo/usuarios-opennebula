@@ -33,3 +33,7 @@ variable "red" {
     numero_ips    = 10
   }
 }
+
+variable "crear_red" {
+  default = true
+}

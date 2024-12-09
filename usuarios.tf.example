@@ -29,3 +29,11 @@ module "ciber" {
   network  = count.index
   password = "12345Abcde"
 }
+
+module "ciber-nonet" {
+  source    = "./crear_usuarios"
+  hostname  = local.opennebula.hostname
+  username  = "ciber-xx"
+  password = "12345Abcde"
+  crear_red = false
+}

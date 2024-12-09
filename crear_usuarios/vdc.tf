@@ -7,7 +7,7 @@ resource "opennebula_virtual_data_center" "datacenter" {
     id = 0
     host_ids = [0]
     datastore_ids = [0, 1, 2]
-    vnet_ids = [opennebula_virtual_network.red.id]
+    vnet_ids = var.crear_red ? [opennebula_virtual_network.red[0].id] : []
   }
 }
 
